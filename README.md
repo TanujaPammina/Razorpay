@@ -1,114 +1,207 @@
-# 🚀 RiskSense — Autonomous Agentic Commerce & Real-Time AI Risk Gateway
+<div align="center">
 
-### Razorpay AI Buildathon 2026 Flagship Project (Track 01 & Track 02)
+# 🛡️ RiskSense
+### Autonomous Agentic Commerce & Real-Time AI Risk Gateway
+**Flagship Submission for Razorpay AI Buildathon 2026**  
+*(Track 01: AI Growth & Agentic Commerce + Track 02: AI Risk Manager)*
 
-> **"What we read instead of your resume: A repo that actually runs, a 5-minute video of it working, what broke at 2 AM and how you got out."**
+[![Live Production Demo](https://img.shields.io/badge/⚡_Live_Demo-razorpay--dicj.onrender.com-0c8ce9?style=for-the-badge&logo=render&logoColor=white)](https://razorpay-dicj.onrender.com/)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-TanujaPammina%2FRazorpay-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/TanujaPammina/Razorpay)
+[![Razorpay AP2 Protocol](https://img.shields.io/badge/Protocol-AP2%20%2F%20UAP%20%2F%20x402-10b981?style=for-the-badge)](https://razorpay-dicj.onrender.com/api/agent/catalog)
+[![License: MIT](https://img.shields.io/badge/License-MIT-amber.svg?style=for-the-badge)](LICENSE)
 
-RiskSense is a full-stack, real-time autonomous commerce platform and AI risk controller built on **Razorpay APIs**. It powers the future of **Agent-to-Agent Commerce (AP2, ACP, x402)** while strictly enforcing **"The Bar"** — ensuring every money action is explainable, bounded, and gated.
+<br/>
 
----
+> **"What we read instead of your resume: A repo that actually runs, a 5-minute video of it working, what broke at 2 AM, and how you got out."**
 
-## 🌟 Key Capabilities & Features
+### 🌐 [Click Here to Open Live Demo (https://razorpay-dicj.onrender.com)](https://razorpay-dicj.onrender.com/)
 
-### 1. 🤖 Track 01: AI Growth & Agentic Commerce (AP2 / ACP / x402)
-
-- **Machine-Readable Catalog (`GET /api/agent/catalog`)**: Full schema.org + AP2 JSON-LD specification with price ceilings, wholesale margin floors, and vector metadata.
-- **Autonomous Negotiation Engine (`POST /api/agent/negotiate`)**: External AI buyers send dynamic discount bids; RiskSense computes unit economics and generates mathematical counter-offers in real-time.
-- **Conversational In-App Smart Checkout**: Natural language & voice shopping co-pilot with intelligent upselling, cross-selling, and instant Razorpay checkout modal launches.
-- **AI Growth & Campaign Orchestrator**: Self-driving revenue engine with real-time abandoned cart rescue links and flash surge promotions.
-
-### 2. 🛡️ Track 02: AI Risk Manager ("The Bar")
-
-- **Every Action Bounded**: Mathematical price floors (min ₹200 unit margin), hard discount ceilings (25%), and request velocity rate-limiters.
-- **Every Action Gated**: High-value transactions (> ₹50,000) or outlier discounts trigger instant **Human-in-the-Loop (HITL)** approval alerts over WebSockets.
-- **Every Action Explainable**: Complete Chain-of-Thought (CoT) reasoning logged with tamper-proof SHA256 cryptographic signatures.
-
-### 3. 🔥 "What Broke at 2 AM and How We Got Out"
-
-- **Graceful Failure Handler**: Interactive Chaos simulator demonstrating 504 Gateway drops, duplicate webhook replay attacks, and prompt injection exploits.
-- **Autonomous Recovery**: 120ms Circuit Breaker, Idempotency token locking, and automated Smart Rescue Fallback links with zero lost merchant revenue.
+</div>
 
 ---
 
-## ⚡ Quick Start & How to Run
+## 📌 Executive Summary & Why RiskSense Wins
+
+In 2026, the convergence of **NPCI's Unified Authentication Protocol (UAP)** and the global **Agent Payments Protocol (AP2 / ACP / x402)** makes **Agent-to-Agent Commerce** the open frontier of fintech. Soon, autonomous AI buyer agents will procure goods, negotiate dynamic pricing, and checkout on behalf of consumers and enterprises.
+
+However, enabling autonomous AI transactions introduces severe financial and operational hazards:
+* **Runaway Discount Exploits**: Unchecked bots hallucinating 90%+ discounts.
+* **Margin Leaks**: Bypassing wholesale unit economics.
+* **Silent Checkout Drops**: Network drops at 2 AM leading to unconfirmed orders and duplicate charges.
+
+**RiskSense** solves this dual challenge by providing a **unified Autonomous Commerce Engine & Real-Time Risk Controller** built natively on Razorpay APIs.
+
+---
+
+## 🎯 Track Alignment: Meeting & Exceeding the Bar
+
+### 🤖 Track 01: AI Growth & Agentic Commerce
+* **AP2 Machine-Readable Catalog (`GET /api/agent/catalog`)**: Full schema.org + AP2 JSON-LD specification with price ceilings, wholesale margin floors, and vector semantic tags.
+* **Autonomous Negotiation Protocol (`POST /api/agent/negotiate`)**: External AI buyers transmit bids; RiskSense computes unit economics and generates mathematical counter-offers in milliseconds.
+* **Conversational In-App Smart Checkout**: Natural language & voice shopping co-pilot with intelligent upselling, cross-selling, and instant Razorpay checkout modal triggers.
+* **AI Growth & Campaign Orchestrator**: Self-driving revenue engine that recovers abandoned carts and launches real-time flash discount surges.
+
+### 🛡️ Track 02: AI Risk Manager ("The Bar")
+* **Every Money Action Bounded**: Mathematical price floors (minimum ₹200 unit profit margin) and strict 25% discount ceilings.
+* **Every Money Action Gated**: High-value transactions (> ₹50,000) or outlier discounts trigger instant **Human-in-the-Loop (HITL)** approval modals over WebSockets.
+* **Every Money Action Explainable**: Complete 4-step Chain-of-Thought (CoT) reasoning logged with tamper-proof SHA256 cryptographic signatures.
+
+### 🔥 "What Broke at 2 AM & How We Got Out"
+* **Interactive Chaos Simulator**: Live stress-testing with simulated 504 Gateway drops, duplicate webhook replay attacks, and prompt injection exploits.
+* **Autonomous Self-Healing**: 120ms Circuit Breaker, Idempotency token locking, and automated Smart Rescue Fallback links with **₹0 revenue loss**.
+
+---
+
+## 🏛️ System Architecture
+
+```mermaid
+graph TD
+    subgraph "External Ingestion Layer"
+        AIBuyer["🤖 Autonomous AI Buyer (AP2 Protocol)"]
+        HumanCustomer["👤 Customer (Conversational Co-Pilot)"]
+        MerchantAdmin["💼 Merchant Supervisor"]
+    end
+
+    subgraph "RiskSense Core Gateway (Node.js + WebSockets)"
+        AP2Router["AP2 / ACP / x402 Protocol Endpoint"]
+        StorefrontAPI["Conversational Storefront API"]
+        GrowthEngine["AI Growth & Campaign Orchestrator"]
+        
+        subgraph "Guardrails & Risk Controller ('The Bar')"
+            RiskScorer["Real-Time Anomaly & Risk Scorer"]
+            BoundsEnforcer["Strict Margin & Budget Bounds"]
+            GatedApproval["HITL Gated Approval Engine"]
+            AuditLogger["Cryptographic Audit Trail (SHA256 CoT Log)"]
+        end
+        
+        subgraph "Failure Recovery ('2 AM Incident Engine')"
+            CircuitBreaker["120ms Circuit Breaker & Lock"]
+            RescueAgent["Automated Smart Rescue Link"]
+        end
+    end
+
+    subgraph "Razorpay Ecosystem"
+        RPOrders["Razorpay Orders API"]
+        RPPayments["Razorpay Standard Checkout & UPI"]
+        RPWebhooks["Webhook Verifier & Event Stream"]
+    end
+
+    AIBuyer -->|AP2 JSON-LD / Bid| AP2Router
+    HumanCustomer -->|Natural Language / Cart| StorefrontAPI
+    MerchantAdmin -->|Approvals & Overrides| GrowthEngine
+    
+    AP2Router --> RiskScorer
+    StorefrontAPI --> RiskScorer
+    GrowthEngine --> BoundsEnforcer
+    
+    RiskScorer --> BoundsEnforcer
+    BoundsEnforcer --> GatedApproval
+    GatedApproval --> AuditLogger
+    
+    AuditLogger --> RPOrders
+    RPOrders --> RPPayments
+    RPPayments --> RPWebhooks
+    RPWebhooks --> CircuitBreaker
+    CircuitBreaker -.->|On 504 Drop| RescueAgent
+```
+
+---
+
+## 🚀 Live Demo & Feature Walkthrough
+
+### 🌐 Live Production URL: **[https://razorpay-dicj.onrender.com](https://razorpay-dicj.onrender.com/)**
+
+| Feature Area | Live Endpoint / Tab | Key Highlights |
+| :--- | :--- | :--- |
+| **Growth Dashboard** | [`/dashboard`](https://razorpay-dicj.onrender.com/) | Real-time MRR analytics, autonomous uplift counters, active campaigns, and live WebSocket telemetry. |
+| **Conversational Storefront** | [`/storefront`](https://razorpay-dicj.onrender.com/) | Natural language AI Co-Pilot, dynamic loyalty discounts, cart management, and Razorpay standard checkout. |
+| **AI Buyer Arena (AP2)** | [`/arena`](https://razorpay-dicj.onrender.com/) | Interactive playground to simulate external AI Buyer Bots negotiating over AP2 with live protocol wire inspector. |
+| **Risk Guardrails ("The Bar")** | [`/guardrails`](https://razorpay-dicj.onrender.com/) | Margin floor controls, pending Human-in-the-Loop review queue, and SHA256 cryptographic audit logs. |
+| **2 AM Crisis Simulator & Pitch** | [`/postmortem`](https://razorpay-dicj.onrender.com/) | Live chaos injection (504 drops, webhook replay), self-healing recovery traces, and 5-minute video presentation script. |
+| **AP2 Machine Catalog** | [`/api/agent/catalog`](https://razorpay-dicj.onrender.com/api/agent/catalog) | Schema.org + AP2 JSON-LD machine-readable inventory. |
+| **Health Telemetry** | [`/api/health`](https://razorpay-dicj.onrender.com/api/health) | Real-time system health, orders count, and guardrail metrics. |
+
+---
+
+## 🛠️ Local Development & Setup
 
 ### Prerequisites
+* Node.js (v18.0.0 or higher)
+* npm (v9.0.0 or higher)
 
-- Node.js (v18 or higher) & npm
+### 1. Clone the Repository
+```bash
+git clone https://github.com/TanujaPammina/Razorpay.git
+cd Razorpay
+```
 
-### 1. Start Backend Server
-
+### 2. Start the Backend Server
 ```bash
 cd backend
 npm install
 npm start
 ```
+*Backend runs on `http://localhost:5000` with WebSocket telemetry and test-mode simulation.*
 
-_Backend runs on `http://localhost:5000` with WebSocket telemetry._
-
-### 2. Start Frontend UI
-
+### 3. Start the Frontend Application
 ```bash
-cd frontend
+cd ../frontend
 npm install
 npm run dev
 ```
-
-_Frontend runs on `http://localhost:5173` with instant dark-mode Razorpay UI._
-
----
-
-## 📐 System Architecture
-
-```
-[ External AI Buyers (AP2) ] <--- JSON-LD ---> [ Ingestion Gateway ]
-[ Conversational Shoppers  ] <--- Socket.io -> [ RiskSense Core  ]
-                                                     │
-                             ┌───────────────────────┴───────────────────────┐
-                             ▼                                               ▼
-               [ Risk & Guardrails Gate ]                      [ AI Growth Orchestrator ]
-               - Max Discount Ceilings                         - Dynamic Upsell Engine
-               - Min Margin Floors                             - Abandoned Cart Rescuer
-               - Gated HITL Approval Queue                     - Campaign Telemetry
-               - SHA256 CoT Audit Ledger                             │
-                             │                                       ▼
-                             └───────────────────────┬───────────────┘
-                                                     ▼
-                                     [ Razorpay Settlement Layer ]
-                                     - Orders API & Standard Checkout
-                                     - 120ms Circuit Breaker
-                                     - Idempotency Webhook Deduplication
-```
+*Frontend runs on `http://localhost:5173` with dark-mode Razorpay UX.*
 
 ---
 
 ## 📁 Repository Structure
 
 ```
-risksense/
+Razorpay/
 ├── backend/
 │   ├── src/
-│   │   ├── config.js                     # Environment & Guardrails config
-│   │   ├── data/products.json            # Machine catalog with margins
-│   │   ├── routes/api.js                 # REST & AP2 endpoints
+│   │   ├── config.js                     # Environment & Guardrails configuration
+│   │   ├── data/products.json            # Machine catalog with wholesale economics
+│   │   ├── routes/api.js                 # REST & AP2 protocol routes
 │   │   ├── services/
-│   │   │   ├── razorpayService.js        # Razorpay Orders & Verification
-│   │   │   ├── agentCommerceService.js   # AP2 Protocol & Negotiations
-│   │   │   ├── guardrailRiskService.js   # Bounded, Gated & Explainable CoT
-│   │   │   ├── growthOrchestratorService.js # AI Co-Pilot & Campaigns
-│   │   │   └── failureRecoveryService.js # 2 AM Incident & Circuit Breaker
-│   │   └── server.js                     # Express & Socket.io server
+│   │   │   ├── razorpayService.js        # Razorpay Orders, Payments & Verification
+│   │   │   ├── agentCommerceService.js   # AP2 Protocol, JSON-LD & Negotiations
+│   │   │   ├── guardrailRiskService.js   # Bounded, Gated & Explainable CoT Engine
+│   │   │   ├── growthOrchestratorService.js # AI Co-Pilot, Upsell & Campaigns
+│   │   │   └── failureRecoveryService.js # 2 AM Incident & Circuit Breakers
+│   │   └── server.js                     # Express, Socket.io & Production Static Server
 │   └── package.json
 ├── frontend/
 │   ├── src/
-│   │   ├── components/                   # Navbar, Gated Modal, Checkout Modal
+│   │   ├── components/                   # Navbar, Gated Modal, Checkout Modal, Architecture
 │   │   ├── pages/                        # Dashboard, Storefront, Arena, Guardrails, PostMortem
-│   │   ├── App.jsx                       # State & WebSocket listener
-│   │   └── index.css                     # Razorpay dark theme styling
+│   │   ├── App.jsx                       # Global WebSocket State & Router
+│   │   └── index.css                     # Obsidian & Razorpay Blue Design Tokens
 │   ├── index.html
 │   ├── vite.config.js
 │   └── package.json
-├── POST_MORTEM_2AM.md                    # Detailed post-mortem report
-├── DEMO_SCRIPT.md                        # 5-minute video pitch script
+├── Dockerfile                            # Multi-stage production container
+├── docker-compose.yml                    # Container orchestration
+├── render.yaml                           # 1-Click Render blueprint
+├── vercel.json                           # Vercel deployment spec
+├── POST_MORTEM_2AM.md                    # Official 2 AM incident report
+├── DEMO_SCRIPT.md                        # 5-minute video pitch presentation script
+├── DEPLOYMENT.md                         # Multi-cloud deployment guide
 └── README.md
 ```
+
+---
+
+## 📄 Key Submission Documents
+
+* 📋 [**POST_MORTEM_2AM.md**](./POST_MORTEM_2AM.md) — Comprehensive technical post-mortem on the 2:14 AM gateway disconnect and autonomous recovery.
+* 🎬 [**DEMO_SCRIPT.md**](./DEMO_SCRIPT.md) — Word-for-word 5-minute presentation script with timestamps for recording.
+* ☁️ [**DEPLOYMENT.md**](./DEPLOYMENT.md) — Step-by-step deployment guide for Docker, Render, Railway, and Vercel.
+
+---
+
+<div align="center">
+
+**Built with precision for the Razorpay AI Buildathon 2026.**  
+*Empowering the next generation of safe, explainable, and profitable agentic commerce on Razorpay.*
+
+</div>
