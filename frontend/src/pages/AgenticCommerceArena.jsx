@@ -57,7 +57,8 @@ export default function AgenticCommerceArena({ onTriggerCheckoutWithOrder }) {
           agentName,
           productId: selectedProduct.id,
           quantity: Number(quantity),
-          proposedDiscountPercent: Number(discountBid)
+          proposedDiscountPercent: Number(discountBid),
+          requestedDiscountPercent: Number(discountBid)
         })
       });
       const data = await res.json();
