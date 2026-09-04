@@ -86,8 +86,10 @@ export const agentCommerceService = {
     productId,
     quantity = 1,
     proposedDiscountPercent = 10,
+    requestedDiscountPercent,
     clientContext = {}
   }) {
+    const discount = Number(requestedDiscountPercent !== undefined ? requestedDiscountPercent : proposedDiscountPercent);
     const product = this.getProductById(productId);
     if (!product) {
       return {
@@ -104,7 +106,7 @@ export const agentCommerceService = {
       productName: product.name,
       originalPrice: product.price,
       wholesaleCost: product.wholesaleCost,
-      requestedDiscountPercent: Number(proposedDiscountPercent),
+      requestedDiscountPercent: discount,
       quantity: Number(quantity),
       clientIp: clientContext.ip || '127.0.0.1'
     });
@@ -115,14 +117,14 @@ export const agentCommerceService = {
       agentName,
       productId: product.id,
       productName: product.name,
-      quantity,
-      requestedDiscountPercent,
+      quantity: Number(quantity),
+      requestedDiscountPercent: discount,
       evaluation
     };
 
     if (evaluation.decision === 'AUTO_APPROVED') {
       negotiationResult.status = 'ACCEPTED';
-      negotiationResult.agreedDiscountPercent = requestedDiscountPercent;
+      negotiationResult.agreedDiscountPercent = discount;
       negotiationResult.agreedTotalAmount = evaluation.pricing.finalAmount;
       negotiationResult.quoteToken = `quote_${uuidv4().replace(/-/g, '')}`;
       negotiationResult.validUntil = new Date(Date.now() + 15 * 60 * 1000).toISOString();
@@ -132,7 +134,7 @@ export const agentCommerceService = {
         payload: {
           quoteToken: negotiationResult.quoteToken,
           productId: product.id,
-          quantity,
+          quantity: Number(quantity),
           finalAmount: negotiationResult.agreedTotalAmount,
           agentId
         }
@@ -144,7 +146,7 @@ export const agentCommerceService = {
     } else {
       // REJECTED_BOUNDS_VIOLATION -> formulate smart autonomous counter-offer
       const safeMaxDiscount = Math.min(product.maxCustomDiscount, 15.0);
-      const safeFinalAmount = (product.price * quantity) * (1 - safeMaxDiscount / 100);
+      const safeFinalAmount = (product.price * Number(quantity)) * (1 - safeMaxDiscount / 100);
 
       negotiationResult.status = 'COUNTER_OFFER';
       negotiationResult.rejectionReason = evaluation.rejectionReason;
